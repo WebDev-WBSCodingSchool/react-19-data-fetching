@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://webdev-wbscodingschool.github.io/react-19-data-fetching",
-  "base": "/react-19-data-fetching/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

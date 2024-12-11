@@ -7,6 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
+  base: '/react-19-data-fetching/',
   resolve: {
     alias: {
       '@': resolve(__dirname, './src')
