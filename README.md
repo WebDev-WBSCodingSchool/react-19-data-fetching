@@ -2,6 +2,8 @@
 
 Hey there! Quickly trying what's new in React so this example uses React 19.
 
+[Here's the live demo](https://webdev-wbscodingschool.github.io/react-19-data-fetching/) :rocket:
+
 A data access layer is exposed from `@/data`, it exposes `async` functions that try to fetch a resource from the network and would throw under certain conditions. These function take the following params:
 
 ```tsx
