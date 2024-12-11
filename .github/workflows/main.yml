@@ -1,28 +1,24 @@
-{
-  'name': 'data-fetching',
-  'private': true,
-  'version': '0.0.0',
-  'type': 'module',
-  'homepage': 'https://webdev-wbscodingschool.github.io/react-19-data-fetching',
-  'scripts':
-    { 'dev': 'vite', 'build': 'vite build', 'lint': 'eslint .', 'preview': 'vite preview' },
-  'dependencies':
-    {
-      'babel-plugin-react-compiler': '^19.0.0-beta-37ed2a7-20241206',
-      'react': '19.0.0',
-      'react-dom': '19.0.0'
-    },
-  'devDependencies':
-    {
-      '@eslint/js': '^9.15.0',
-      '@types/react': '19.0.1',
-      '@types/react-dom': '19.0.2',
-      '@vitejs/plugin-react': '^4.3.4',
-      'eslint': '^9.15.0',
-      'eslint-plugin-react': '^7.37.2',
-      'eslint-plugin-react-hooks': '^5.0.0',
-      'eslint-plugin-react-refresh': '^0.4.14',
-      'globals': '^15.12.0',
-      'vite': '^6.0.1'
-    }
-}
+name: Deploy React App to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build React App
+        run: npm run build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
