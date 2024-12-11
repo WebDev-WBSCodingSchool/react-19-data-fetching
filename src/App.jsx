@@ -4,7 +4,7 @@ import { getPost, getTodo } from '@/data';
 
 const App = () => {
   return (
-    <ErrorBoundary fallback={<p>💀 Top-level boundary...</p>}>
+    <>
       <p>This should render immediately</p>
       <ErrorBoundary fallback={<p>💀 Error fetching post...</p>}>
         <Suspense fallback={<p>Fetching post...</p>}>
@@ -56,7 +56,7 @@ const App = () => {
           <ToDo todoPromise={getTodo(5, 1000, true)} />
         </Suspense>
       </ErrorBoundary>
-    </ErrorBoundary>
+    </>
   );
 };
 
